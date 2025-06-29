@@ -3,9 +3,13 @@ import SwiftUI
 struct SemiCircleTabBar: View {
     @Binding var selectedTab: TabViewEnum
     @State private var isExpanded = false
+    
     var body: some View {
+        
         ZStack {
+        
             let allTabs = TabViewEnum.allCases
+            
             ForEach(allTabs.indices, id: \.self) { index in
                 let tabView = allTabs[index]
                 let angle = angleForTabButton(at: index, total: allTabs.count)
@@ -41,7 +45,7 @@ struct SemiCircleTabBar: View {
                     .font(.system(size: 24))
                     .bold()
                     .padding()
-                    .frame(width: 60)
+                    .frame(width: isExpanded ? 60 : 40)
                     .foregroundStyle(.white)
                     .background(selectedTab.tabItem.color, in: .circle)
             }

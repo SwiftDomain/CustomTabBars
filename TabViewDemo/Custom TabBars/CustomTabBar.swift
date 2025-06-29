@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CustomTabBar: View {
     @Binding var selectedTab: TabViewEnum
-    var body: some View { //llk
+    var body: some View { 
         HStack {
             ForEach(TabViewEnum.allCases) { tabView in
                 Button {
